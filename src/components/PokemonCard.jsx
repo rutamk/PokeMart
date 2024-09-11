@@ -23,7 +23,7 @@ const PokemonCard = ({ pokemon, onAdd }) => {
       </div>
       <button
         onClick={() => onAdd(pokemon)}
-        className="mt-2 bg-blue-600 text-neutral-100 px-2 py-1 rounded"
+        className="mt-3 bg-neutral-800 border-[1px] border-white text-neutral-100 px-3 py-2 rounded"
       >
         Add to Cart
       </button>

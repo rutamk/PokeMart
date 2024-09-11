@@ -199,7 +199,7 @@ const Shop = () => {
           {types.map((type) => (
             <button
               key={type}
-              className={`w-full py-2 px-4 rounded-md text-neutral-800 ${TYPE_COLORS[type.toLowerCase()]}`}
+              className={`w-full text-lg  py-2 px-4 rounded-md text-neutral-800 ${TYPE_COLORS[type.toLowerCase()]}`}
               onClick={() => handleTypeChange(type)}
             >
               {type}
