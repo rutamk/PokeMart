@@ -36,6 +36,28 @@ const TYPE_COLORS = {
   unknown: "bg-gray-300", // Darker gray for unknown
 };
 
+const TYPE_HOVER_COLORS = {
+  fire: "hover:bg-red-500", // Darker red for fire
+  water: "hover:bg-blue-500", // Darker blue for water
+  grass: "hover:bg-green-500", // Darker green for grass
+  electric: "hover:bg-yellow-500", // Darker yellow for electric
+  ice: "hover:bg-teal-500", // Darker teal for ice
+  fighting: "hover:bg-orange-500", // Darker orange for fighting
+  poison: "hover:bg-purple-500", // Darker purple for poison
+  ground: "hover:bg-yellow-600", // Darker yellow for ground
+  flying: "hover:bg-blue-400", // Darker blue for flying
+  psychic: "hover:bg-pink-500", // Darker pink for psychic
+  bug: "hover:bg-green-500", // Darker green for bug
+  rock: "hover:bg-gray-500", // Darker gray for rock
+  ghost: "hover:bg-purple-600", // Darker purple for ghost
+  dragon: "hover:bg-red-600", // Darker red for dragon
+  dark: "hover:bg-gray-600", // Darker gray for dark
+  steel: "hover:bg-gray-500", // Darker gray for steel
+  fairy: "hover:bg-pink-400", // Darker pink for fairy
+  normal: "hover:bg-gray-400", // Darker gray for normal
+  stellar: "hover:bg-gray-400", // Darker gray for stellar
+};
+
 // Capitalize first letter of a string
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -237,14 +259,15 @@ const Shop = () => {
 
               {types.map((type) => (
                 <button
-                  key={type}
-                  className={`w-full text-lg py-2 px-4 rounded-md text-neutral-800 ${
-                    TYPE_COLORS[type.toLowerCase()]
-                  }`}
-                  onClick={() => handleTypeChange(type)}
-                >
-                  {type}
-                </button>
+                key={type}
+                className={`w-full text-lg py-2 px-4 rounded-md text-neutral-800 ${TYPE_COLORS[type.toLowerCase()]} ${TYPE_HOVER_COLORS[type.toLowerCase()]}`}
+
+                onClick={() => handleTypeChange(type)}
+                style={{ color: 'inherit' }} // Ensures the text color stays the same
+              >
+                {type}
+              </button>
+              
               ))}
             </div>
           </div>
@@ -271,7 +294,7 @@ const Shop = () => {
           <div className="flex justify-between items-center">
             <button
               onClick={() => handlePageChange("prev")}
-              className="bg-gray-800 text-neutral-100 px-4 py-2 rounded disabled:opacity-50"
+              className="bg-neutral-800 text-neutral-100 px-4 py-2 rounded disabled:opacity-50"
               disabled={page === 1}
             >
               Previous
@@ -281,7 +304,7 @@ const Shop = () => {
             </span>
             <button
               onClick={() => handlePageChange("next")}
-              className="bg-gray-800 text-neutral-100 px-4 py-2 rounded disabled:opacity-50"
+              className="bg-neutral-800 text-neutral-100 px-4 py-2 rounded disabled:opacity-50"
               disabled={page === totalPages}
             >
               Next
@@ -290,7 +313,7 @@ const Shop = () => {
         </div>
 
         {/* Cart */}
-        <div className="w-80 bg-neutral-900 p-4 rounded-lg shadow-md">
+        <div className="w-80 bg-neutral-900 py-2 rounded-lg shadow-md">
           <Cart
             cartItems={cart}
             onAdd={handleAddToCart}
