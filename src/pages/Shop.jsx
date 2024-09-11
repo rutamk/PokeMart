@@ -5,7 +5,7 @@ import SkeletonCard from '../components/SkeletonCard';
 import Cart from '../components/Cart';
 
 // Number of Pokémon per page
-const ITEMS_PER_PAGE = 16; // Adjusted to fit 4x4 grid
+const ITEMS_PER_PAGE = 12; // Adjusted to fit 4x4 grid
 
 // Define base prices and price multipliers
 const BASE_PRICE = 100;
